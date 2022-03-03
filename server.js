@@ -6,6 +6,15 @@ const app = express();
 const db = require("./db.js")
 app.use(express.json());
 const path = require('path')
+const cors = require('cors');
+
+app.use(cors({
+    "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}))
+
 const pizzasRoute = require('./routes/pizzasRoute')
 const userRoute = require('./routes/userRoute')
 const ordersRoute = require('./routes/ordersRoute')
